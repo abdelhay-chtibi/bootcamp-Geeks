@@ -8,12 +8,12 @@ while True:
         nombre_bougies = int(str(age)[-1]) or 1  # éviter 0 bougie
 
         # Calculer l'espacement pour centrer les bougies
-        largeur_gateau = 19
+        largeur_gateau = 11
         bougies_str = "i" * nombre_bougies
         espace_avant = (largeur_gateau - len(bougies_str)) // 2
+        espage_apres = espace_avant
 
-        print("  " + " " * espace_avant + bougies_str)
-        print("      -----------  ")
+        print("      " + "_" * espace_avant + bougies_str + "_" * espage_apres)
         print("     |:H:a:p:p:y:|")
         print("   __|___________|__")
         print("  |^^^^^^^^^^^^^^^^^|")
