@@ -49,5 +49,6 @@ print(macdonald.get_info())
 
 print("\n----------------------\n")
 
+
 # Affiche la phrase courte
 print(macdonald.get_short_info())
