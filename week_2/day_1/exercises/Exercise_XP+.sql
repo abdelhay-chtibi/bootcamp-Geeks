@@ -18,4 +18,4 @@ select first_name , last_name from students where last_name like '%a_';
 
 select first_name , last_name from students where id in (1,3);
 
-select first_name , last_name from students where birth_date >= '1/01/2000'
+select first_name , last_name from students where birth_date >= '2000-01-01'
