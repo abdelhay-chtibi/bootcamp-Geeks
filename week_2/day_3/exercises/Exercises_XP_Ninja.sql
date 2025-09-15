@@ -1,10 +1,12 @@
+-- Démarrer une transaction
 BEGIN;
 
--- Repartir propre
+-- 1️⃣ Supprimer les tables si elles existent pour repartir propre
 DROP TABLE IF EXISTS public.items;
 DROP TABLE IF EXISTS public.customers;
 
--- Tables
+-- 2️⃣ Création des tables
+
 CREATE TABLE public.items (
     id    integer PRIMARY KEY,
     name  text    NOT NULL,
@@ -17,7 +19,8 @@ CREATE TABLE public.customers (
     last_name  text NOT NULL
 );
 
--- Données
+-- 3️⃣ Insertion des données
+
 INSERT INTO public.items (id, name, price) VALUES
  (1, 'Small Desk', 100),
  (2, 'Large Desk', 300),
@@ -30,36 +33,37 @@ INSERT INTO public.customers (id, first_name, last_name) VALUES
  (4, 'Trevor',  'Green'),
  (5, 'Melanie', 'Johnson');
 
--- Requêtes demandées
+-- ========================
+-- 4️⃣ Requêtes demandées
+-- ========================
 
--- 3.1 Tous les items
-SELECT * FROM public.items ORDER BY id;
+-- 4.1 Tous les items
+SELECT * FROM public.items
+ORDER BY id;
 
--- 3.2 Items avec un prix strictement > 80 (80 exclu)
+-- 4.2 Items avec un prix strictement > 80
 SELECT * FROM public.items
 WHERE price > 80
 ORDER BY id;
 
--- 3.3 Items avec un prix <= 300 (300 inclus)
+-- 4.3 Items avec un prix <= 300
 SELECT * FROM public.items
 WHERE price <= 300
 ORDER BY id;
 
--- 3.4 Clients dont le nom = 'Smith' (résultat attendu : 0 ligne)
+-- 4.4 Clients dont le nom = 'Smith' (résultat : 0 ligne)
 SELECT * FROM public.customers
 WHERE last_name = 'Smith';
 
--- 3.5 Clients dont le nom = 'Jones' (attendu : 2 lignes)
+-- 4.5 Clients dont le nom = 'Jones' (résultat : 2 lignes)
 SELECT * FROM public.customers
 WHERE last_name = 'Jones'
 ORDER BY id;
 
--- 3.6 Clients dont le prénom n'est pas 'Scott' (attendu : 4 lignes)
+-- 4.6 Clients dont le prénom n'est pas 'Scott' (résultat : 4 lignes)
 SELECT * FROM public.customers
 WHERE first_name <> 'Scott'
 ORDER BY id;
 
+-- Valider les changements
 COMMIT;
-
-
-
