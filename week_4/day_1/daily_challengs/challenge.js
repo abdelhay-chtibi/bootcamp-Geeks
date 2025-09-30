@@ -35,6 +35,6 @@ const cloneGroceries = () => {
     // ⚡ Explication : les objets sont copiés par référence → les deux pointent vers la même mémoire.
 };
 
-// 🔥 Tester les fonctions
+// 🔥 Tester les fonctions   
 displayGroceries();
 cloneGroceries();
